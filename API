@@ -1,0 +1,16 @@
+from flask import Flask ,render_template,request,redirect,url_for,jsonify
+
+app = Flask(__name__)
+
+@app.route('/api', methods=["POST"])
+def cal_sum():
+    data=request.get_json()
+    a_val=float(dict(data)['a'])
+    b_val=float(dict(data)['b'])
+    return jsonify(a_val+b_val) 
+
+    
+if __name__=="__main__":
+    app.run(debug=True)
+
+# using for postman for testing api
